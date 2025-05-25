@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MoodCare - Your Mood Buddy</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.4.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional: Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css" />
+    <style>
+      body {
+        font-family: 'Roboto', Arial, sans-serif;
+        background: #e3f2fd;
+      }
+      .container {
+        max-width: 480px;
+        background: white;
+        margin-top: 100px;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+      button {
+        font-size: 20px;
+      }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="mb-4 text-primary">MoodCare AI</h1>
+        <h3>DESCRIBE YOUR DAY IN THREE WORDS.</h3>
+        <form action="/analyze" method="post">
+            <button type="submit" class="btn btn-primary btn-lg mb-4">Tap to Speak</button>
+        </form>
+
+        {% if mood %}
+            <h2 class="text-success">Your Mood: {{ mood }}</h2>
+            <p><strong>Quote:</strong> <em>{{ quote }}</em></p>
+            <p><strong>Try This:</strong> {{ activity }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
